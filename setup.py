@@ -2,7 +2,7 @@ from setuptools.extension import Extension
 from setuptools import setup, find_packages
 
 extensions = []
-extensions.append( Extension( "clustertrees",
+extensions.append( Extension( "clustertree",
                               [ "clustertree/clustertree.pyx"]))
 #                                "src/cluster.c"], ) )
 
