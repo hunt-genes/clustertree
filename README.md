@@ -1,4 +1,4 @@
-# Clustertree
+# Clustertrees
 
 The brilliant Kanwei Li's clustertree algorithm. Extracted from bx-python to
 make a dependency-free version. Thanks to James Taylor for the liberal license
@@ -19,6 +19,8 @@ python setup.py install
 ## Example
 
 ```
+from clustertrees import ClusterTree # note clustertrees
+
 c = ClusterTree(500, 3) # distance allowed, reads required.
 
 c.insert(0, 1, 500) # start, end, id (int)
