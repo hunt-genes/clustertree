@@ -19,7 +19,7 @@ python setup.py install
 ## Example
 
 ```
-from clustertrees import ClusterTree # note clustertrees
+from clustertrees import ClusterTree
 
 c = ClusterTree(500, 3) # distance allowed, reads required.
 
