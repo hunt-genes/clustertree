@@ -1,13 +1,19 @@
-from setuptools.extension import Extension
-from setuptools import setup, find_packages
+
+from setuptools import find_packages, Extension, Command
+from distutils.core import setup
+
+
+from Cython.Build import cythonize
+
+from clustertree import __version__
 
 extensions = []
-extensions.append( Extension( "clustertree",
-                            [ "clustertree/clustertree.pyx",
+extensions.append( Extension( "clustertree.src.clustertree",
+                            [ "clustertree/src/clustertree.pyx",
                                "src/cluster.c"], ) )
 
-setup(version='0.1.0',
-	  name='clustertrees',
+setup(version=__version__,
+	  name='clustertree',
       description="Kanwei Li's clustertree code",
       long_description="Kanwei Li's clustertree code from bx-python",
       author="Kanwei Li (Maintainer=Endre Bakken Stovner)",
@@ -15,7 +21,7 @@ setup(version='0.1.0',
       # package_dir = { '': 'lib' },
       packages=find_packages(),
       setup_requires=['cython'],
-      ext_modules=extensions,
-      test_suite='nose.collector',
-      tests_require='nose',
+      ext_modules=cythonize(extensions),
+      package_data={'': ['*.pyx', '*.pxd', '*.h', '*.c']},
+      include_dirs=["."],
 )
